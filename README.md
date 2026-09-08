@@ -3,8 +3,7 @@
 Nulldimensionales Kammermodell der ventilierten Deflagration einer PET-Flasche
 mit Alkohol-Luft-Gemisch, mit anschliessender Schub- und Flugrechnung.
 
-Teil des Hochschulprojekts *Funkzuendmodul fuer Methanolrakete und Wasserstoffballon*
-(Projekt Boecker). Das Modell bestimmt den optimalen Duesendurchmesser und die
+Das Modell bestimmt den optimalen Duesendurchmesser und die
 sicherheitstechnische Druckobergrenze und validiert diese gegen die Messwerte der
 eigenen Erprobung.
 
@@ -32,5 +31,4 @@ Abhaengigkeiten: nur die Python-Standardbibliothek.
 Die Duesenstudie wird zusaetzlich als `duesenstudie.csv` neben dem Skript abgelegt.
 
 ## Autor
-
-Lukas Sikken
+Sikken
