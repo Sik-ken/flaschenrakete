@@ -53,8 +53,8 @@ Block auskommentieren und den anderen einkommentieren — sonst ist nichts zu
 | `N_PROD` gasförmige Produkte | 7,0 (3 CO₂ + 4 H₂O) | 3,0 (1 CO₂ + 2 H₂O) | Reaktionsgleichung |
 | `S_L` lam. Brenngeschwindigkeit | 0,40 m/s | 0,45 m/s | Literatur |
 | `SIGMA` Expansionsverhältnis | 8,10 | 7,80 | berechnet |
-| `T_AD` isochore Flammentemperatur | 2595,77 K | *einzutragen* | externes Tool |
-| `P_ISO_EXT` isochorer Grenzdruck | 9,02 bar | *einzutragen* | externes Tool |
+| `T_AD` isochore Flammentemperatur | 2595,77 K | 2570,36 K | externes Tool |
+| `P_ISO_EXT` isochorer Grenzdruck | 9,02 bar | 9,18 bar | externes Tool |
 
 > **Wichtig zu `T_AD`:** Es muss die **isochore** adiabate Flammentemperatur
 > sein, nicht die isobare. In der Beziehung p₂/p₁ = (n₂/n₁)·(T₂/T₁) steht
