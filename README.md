@@ -64,6 +64,68 @@ Block auskommentieren und den anderen einkommentieren — sonst ist nichts zu
 > weicht der externe Wert um mehr als etwa 10 % nach unten ab, ist es der
 > isobare.
 
+### Herkunft der externen Werte: NASA CEA (CEARUN)
+
+`T_AD` und `P_ISO_EXT` stammen aus **NASA CEA** (*Chemical Equilibrium with
+Applications*), bedient über die Weboberfläche **CEARUN**:
+<https://cearun.grc.nasa.gov/>
+
+CEA berechnet die Gleichgewichtszusammensetzung einer Verbrennung
+**inklusive Dissoziation** (bei rund 2600 K zerfällt ein merklicher Anteil
+der Produkte in CO, OH, H, O, NO …). Die einfache Molbilanz im Skript
+unterstellt dagegen eingefrorene Produkte (3 CO₂ + 4 H₂O + N₂). Deshalb
+weichen `p_modell` und `p_extern` in Abschnitt 3 voneinander ab.
+
+Für den Grenzdruck der **geschlossenen** Flasche wird der Problemtyp
+**`uv`** gewählt (*assigned internal energy and volume*) — die isochore
+adiabate Verbrennung bei konstantem Volumen. Der Kammerdruck ist dabei
+Ergebnis der Rechnung, nicht Vorgabe.
+
+**Eingaben** (für beide Brennstoffe identisch bis auf den Fuel):
+
+| Größe | Wert |
+|---|---|
+| Fuel | `CH3OH` (Methanol) bzw. `C3H8O,2propanol` (Isopropanol) |
+| Oxidant | `Air` |
+| Äquivalenzverhältnis φ | 1,0 (stöchiometrisch) |
+| Anfangstemperatur | 298,15 K |
+| Anfangsdruck | 1,013 bar |
+
+**Ergebnisse** (Gleichgewicht mit Dissoziation, Problemtyp `uv`):
+
+| Brennstoff | O/F | %FUEL | p isochor → `P_ISO_EXT` | T isochor → `T_AD` |
+|---|---|---|---|---|
+| Methanol CH₃OH | 6,473 | 13,381 | 9,1842 bar → `9.18e5` | 2570,36 K → `2570.36` |
+| Isopropanol C₃H₈O | 10,354 | 8,807 | 9,0204 bar → `9.02e5` | 2595,77 K → `2595.77` |
+
+Auszug der CEA-Ausgabe — Methanol:
+
+```
+ FUEL        CH3OH                1.0000000   -203418.971    298.150
+ OXIDANT     Air                  1.0000000     -2604.501    298.150
+
+ O/F=    6.47313  %FUEL= 13.381268  R,EQ.RATIO= 1.000000  PHI,EQ.RATIO= 1.000000
+
+ THERMODYNAMIC PROPERTIES
+
+ P, BAR            9.1842
+ T, K            2570.36
+```
+
+Isopropanol:
+
+```
+ FUEL        C3H8O,2propanol      1.0000000   -275178.971    298.150
+ OXIDANT     Air                  1.0000000     -2604.501    298.150
+
+ O/F=   10.35416  %FUEL=  8.807342  R,EQ.RATIO= 1.000000  PHI,EQ.RATIO= 1.000000
+
+ THERMODYNAMIC PROPERTIES
+
+ P, BAR            9.0204
+ T, K            2595.77
+```
+
 ---
 
 ## 3. Aufbau des Skripts
